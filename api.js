@@ -29,7 +29,7 @@ function fetchResults(e) {
 
 function displayResults(json) {
 
-    let name = document.createElement('h1');
+    let showName = document.createElement('h1');
     // let realm = document.createElement('h2');
     // let charClass = document.createElement('h3');
   //  console.log(detheroc/247/39049207-avatar.jpg)
@@ -41,6 +41,8 @@ function displayResults(json) {
     console.log('Level: ', json.level);
     console.log('Faction: ', json.faction);
     console.log('Honorable Kills: ', json.totalHonorableKills);
+    showName.appendChild()
+
 }
 
 // console.log(json);
