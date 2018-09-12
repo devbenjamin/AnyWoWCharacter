@@ -23,17 +23,18 @@
             <h3 id="genderHere" class="display-text"></h3>
             <h3 id="levelHere" class="display-text"></h3>
             <h3 id="factionHere" class="display-text"></h3>
-        
     </div>
-    <form>
-        <input type="text" id="nameInput" class="fieldStyle" placeholder="Horde Character's Name">
+
+    <form id="char-form">
+        <input type="text" id="name-input" class="fieldStyle" placeholder="Character's Name">
         <br />
-        <!-- <input type="text" id="realmInput" class="fieldStyle" placeholder="Horde Faction"> -->
+        <input type="text" id="realm-input" class="fieldStyle" placeholder="Realm">
         <br />
-        <button id="get-profile" onClick='profile'>Get Profile</button>
+        <button id="get-profile" type="submit">Get Profile</button>
     </form>
     <script type="text/javascript" src="api.js"></script>
 
 </body>
 
 </html>
+

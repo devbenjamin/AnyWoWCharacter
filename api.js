@@ -1,22 +1,20 @@
-const baseURL = 'https://us.api.battle.net/wow/character/detheroc/unread?locale=en_US';
 const key = 'vs54zh8bc83quqnpewyzkdwxpj74db3k';
-
 let url;
 
-const profile = document.querySelector('#get-profile');
-// const search = document.querySelector('.search');
-// const searchForm = document.querySelector('form');
-// const submitBtn = document.querySelector('.submit');
-// const profileBtn = document.querySelector('#log-profile');
+const nameInput = document.querySelector('#name-input');
+const realmInput = document.querySelector('#realm-input');
+const baseURL = 'https://us.api.battle.net/wow/character/';
+const profile = document.querySelector('form');
+const submitBtn = document.querySelector('.submit');
 
-profile.addEventListener('click', fetchResults);
-//searchForm.addEventListener('submit', fetchResults);
-//const nextBtn = document.querySelector('.next');
+
+
+profile.addEventListener('submit', fetchResults);
 
 function fetchResults(e) {
     e.preventDefault();
-    url = baseURL + '&apikey=' + key;
-    // url = '';
+    
+    url = baseURL + realmInput.value + '/' + nameInput.value + '?locale=en_US&apikey=' + key;
 
     fetch(url)
         .then(function (result) {
@@ -33,14 +31,26 @@ function displayResults(json) {
     let displayGender;
     let displayFaction;
 
+    if(json.race == 1) {
+        displayRace = 'Human';
+    }
     if(json.race == 2) {
         displayRace = 'Orc';
+    }
+    if(json.race == 3) {
+        displayRace = 'Dwarf';
+    }
+    if(json.race == 4) {
+        displayRace = 'Nightelf';
     }
     if(json.race == 5) {
         displayRace = 'Undead';
     }
     if(json.race == 6) {
         displayRace = 'Tauren';
+    }
+    if(json.race == 7) {
+        displayRace = 'Gnome';
     }
     if(json.race == 8) {
         displayRace = 'Troll';
@@ -50,6 +60,9 @@ function displayResults(json) {
     }
     if(json.race == 10) {
         displayRace = 'Blood Elf';
+    }
+    if(json.race == 11) {
+        displayRace = 'Bloodelf';
     }
     if(json.race == 26) {
         displayRace = 'Pandaren';
@@ -100,7 +113,7 @@ function displayResults(json) {
     }
 
     if(json.faction == 0) {
-        displayFaction = 'Alliance (Sissies)';
+        displayFaction = 'Alliance';
     }
     if(json.faction == 1) {
         displayFaction = '(For the) Horde!'
